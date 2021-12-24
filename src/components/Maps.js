@@ -70,7 +70,6 @@ const getCoordinatedGeoJson =(data) =>{
   
   geoJsonData.map((g)=>{
     let geometryData = g.geometry.coordinates
-    console.log(geometryData)
     geometryData.map((coordinates)=>{
       coordinates.map((latlngCoords)=>{
         let latLongArray = []
@@ -98,14 +97,15 @@ function Maps() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={2}
+        zoom={1}
+        // options={options}
         
       >
         { /* Child components, such as markers, info windows, etc. */ }
         <Polygon
-      paths={latlongData}
-      options={options}
-    />
+          paths={latlongData}
+          options={options}
+        />
         <></>
       </GoogleMap>
     </LoadScript>
